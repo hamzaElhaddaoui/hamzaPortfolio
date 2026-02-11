@@ -1,61 +1,45 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import type { FC } from "react";
+import Title from "./title/Title";
+import SectionsNav from "./sectionsNav/SectionsNav";
+import AboutMe from "./aboutMe/AboutMe";
+import AcademicBackground from "./academicBackground/academicBackground";
+import ProExperiences from "./proExperiences/ProExperiences";
+import PersonalProjects from "./personalProjects/PersonalProjects";
+import SocialIcons from "./socialIcons/SocialIcons";
 
-function Home() {
-  return <h2>Accueil</h2>;
-}
-
-function About() {
-  return <h2>À propos</h2>;
-}
-
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: FC = () => {
   return (
-    <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            Portfolio
-          </Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Accueil
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/about">
-                  À propos
-                </Link>
-              </li>
-            </ul>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="flex flex-col space-y-8 p-4 items-start md:h-screen w-full md:w-auto">
+          <div>
+            <Title />
+          </div>
+          <div className="hidden md:block">
+            <SectionsNav />
+          </div>
+          <div className="mt-auto">
+            <SocialIcons />
           </div>
         </div>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <div className="card mt-4">
-        <button
-          className="btn btn-primary"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+        <div className="flex flex-col space-y-8 p-4 flex-1 overflow-y-auto md:h-screen">
+          <div id="section1">
+            <AboutMe />
+          </div>
+          <div id="section2">
+            <AcademicBackground />
+          </div>
+          <div id="section3">
+            <ProExperiences />
+          </div>
+          <div id="section4">
+            <PersonalProjects />
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </Router>
+    </>
   );
-}
+};
 
 export default App;
