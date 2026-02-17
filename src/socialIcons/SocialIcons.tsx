@@ -1,23 +1,34 @@
 import type { FC } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const SocialIcons: FC = () => {
   return (
-    <div className="social-icons flex space-x-4">
+    <div className="social-icons flex space-x-6">
       <a
-        href="https://www.linkedin.com/in/hamza-el-haddaoui"
+        href="https://github.com/hamzaElhaddaoui"
         target="_blank"
         rel="noopener noreferrer"
+        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        aria-label="GitHub"
       >
-        <img src="/linkedin-icon.png" alt="LinkedIn" className="social-icon" />
+        <FaGithub />
       </a>
       <a
-        href="https://www.github.com/hamzaelhad"
+        href="https://fr.linkedin.com/in/hamzaelhaddaoui"
         target="_blank"
         rel="noopener noreferrer"
+        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        aria-label="LinkedIn"
       >
-        <img src="/github-icon.png" alt="GitHub" className="social-icon" />
+        <FaLinkedin />
       </a>
-      {/* Ajouter d'autres icônes de réseaux sociaux si nécessaire */}
+      <a
+        href="mailto:hamza.el.haddaoui@gmail.com"
+        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        aria-label="Email"
+      >
+        <FaEnvelope />
+      </a>
     </div>
   );
 };

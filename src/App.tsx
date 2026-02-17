@@ -9,9 +9,9 @@ import SocialIcons from "./socialIcons/SocialIcons";
 
 const App: FC = () => {
   return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col space-y-8 p-4 items-start md:h-screen w-full md:w-auto">
+    <div className="container mx-auto mt-20 px-10">
+      <div className="md:flex">
+        <div className="flex flex-col space-y-15 items-start md:fixed md:top-20 md:left-[18%] md:w-[20%]">
           <div>
             <Title />
           </div>
@@ -22,8 +22,7 @@ const App: FC = () => {
             <SocialIcons />
           </div>
         </div>
-
-        <div className="flex flex-col space-y-8 p-4 flex-1 overflow-y-auto md:h-screen">
+        <div className="flex flex-col space-y-15 flex-1 md:ml-[41%] md:mr-[13%] md:pl-7">
           <div id="section1">
             <AboutMe />
           </div>
@@ -36,9 +35,18 @@ const App: FC = () => {
           <div id="section4">
             <PersonalProjects />
           </div>
+          <div id="section4">
+            <PersonalProjects />
+          </div>
+          <div id="section4">
+            <PersonalProjects />
+          </div>
+          <div id="section4">
+            <PersonalProjects />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

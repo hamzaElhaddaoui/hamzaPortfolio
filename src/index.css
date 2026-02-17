@@ -10,9 +10,18 @@ body {
   color: #bfc9d1;
 }
 
-.bright-text {
-  color: #f5f2f2;
+.big-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #eafef0;
 }
+
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #eafef0;
+}
+
 
 /* Custom styles for the application can be added here 
     background-color: #25343f;
