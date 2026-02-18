@@ -11,14 +11,14 @@ const App: FC = () => {
   return (
     <div className="container mx-auto mt-20 px-10">
       <div className="md:flex">
-        <div className="flex flex-col space-y-15 items-start md:fixed md:top-20 md:left-[18%] md:w-[20%]">
+        <div className="flex flex-col space-y-15 items-start md:fixed md:top-20 md:left-[18%] md:w-[20%] md:h-[calc(100vh-5rem)] md:justify-between">
           <div>
             <Title />
           </div>
           <div className="hidden md:block">
             <SectionsNav />
           </div>
-          <div className="mt-auto">
+          <div className="md:mt-auto md:mb-20">
             <SocialIcons />
           </div>
         </div>
@@ -35,15 +35,16 @@ const App: FC = () => {
           <div id="section4">
             <PersonalProjects />
           </div>
-          <div id="section4">
+          <div>
             <PersonalProjects />
           </div>
-          <div id="section4">
+          <div>
             <PersonalProjects />
           </div>
-          <div id="section4">
+          <div>
             <PersonalProjects />
           </div>
+          <div></div>
         </div>
       </div>
     </div>

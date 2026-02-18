@@ -18,3 +18,11 @@
 .group:hover {
   color: #ffffff;
 }
+
+.section-link.active .line {
+  width: 2.5rem;
+}
+
+.section-link.active {
+  color: #ffffff;
+}
