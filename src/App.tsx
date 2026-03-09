@@ -35,15 +35,6 @@ const App: FC = () => {
           <div id="section4">
             <PersonalProjects />
           </div>
-          <div>
-            <PersonalProjects />
-          </div>
-          <div>
-            <PersonalProjects />
-          </div>
-          <div>
-            <PersonalProjects />
-          </div>
           <div></div>
         </div>
       </div>

@@ -3,10 +3,10 @@ import "./Title.css";
 
 const TitleData = {
   name: "Hamza EL HADDAOUI",
-  title: "Software Engineer",
+  title: "Ingénieur Fullstack & DevOps",
   description:
-    "I am a software engineer with a passion for building scalable and efficient applications. I have experience in various programming languages and frameworks, and I enjoy learning new technologies to stay up-to-date in the ever-evolving field of software development.",
-}
+    "Passionné par le DevOps et l'automatisation pour améliorer la fiabilité et l'efficacité.",
+};
 
 const Title: FC = () => {
   return (

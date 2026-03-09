@@ -3,14 +3,21 @@ import "./AcademicBackground.css";
 
 const academicItems = [
   {
-    title: "Bachelor of Science in Computer Science",
-    description:
-      "Graduated from XYZ University with a focus on software engineering and data structures. Completed coursework in algorithms, databases, and web development.",
+    title: "Cycle d'ingénieur",
+    field: "Génie logiciel",
+    date: "2019–2021",
+    titleNature: "Double diplôme ENSIAS–ISIMA",
+    university:
+      "ISIMA — Institut Supérieur d'Informatique, de Modélisation et de leurs Applications",
+    city: "Clermont‑Ferrand, France",
   },
   {
-    title: "Master of Science in Software Engineering",
-    description:
-      "Pursued a master's degree at ABC University, specializing in software architecture and design patterns. Conducted research on scalable software systems and published a thesis on microservices architecture.",
+    title: "Cycle d'ingénieur",
+    field: "Génie logiciel",
+    date: "2017–2020",
+    university:
+      "ENSIAS — École Nationale Supérieure d'Informatique et d'Analyse des Systèmes",
+    city: "Rabat, Maroc",
   },
 ];
 
@@ -20,13 +27,21 @@ const AcademicBackground: FC = () => {
       <div className="academic-background-title">
         <h2 className="md:hidden block bright-text">Academic Background</h2>
       </div>
-      <div className="academic-background-list space-y-5">
-        {academicItems.map((item) => (
-          <div className="academic-background-item space-y-2" key={item.title}>
-            <h3 className="academic-background-title">{item.title}</h3>
-            <p className="academic-background-description">
-              {item.description}
-            </p>
+      <div className="space-y-5">
+        {academicItems.map((item, index) => (
+          <div className="flex" key={index}>
+            <div className="md:basis-1/5 text-xs mt-0.5">{item.date}</div>
+            <div className="md:basis-4/5 text-sm">
+              <h3 className="uppercase">
+                {item.title}, filière {item.field}
+              </h3>
+              {item.titleNature && (
+                <div className="text-xs">{item.titleNature}</div>
+              )}
+              <div className="text-xs mt-2">
+                {item.university}, {item.city}
+              </div>
+            </div>
           </div>
         ))}
       </div>
