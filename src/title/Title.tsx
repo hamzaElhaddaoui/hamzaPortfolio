@@ -3,7 +3,7 @@ import "./Title.css";
 
 const TitleData = {
   name: "Hamza EL HADDAOUI",
-  title: "Ingénieur Fullstack & DevOps",
+  title: "Ingénieur DevOps & Fullstack",
   description:
     "Passionné par le DevOps et l'automatisation pour améliorer la fiabilité et l'efficacité.",
 };
