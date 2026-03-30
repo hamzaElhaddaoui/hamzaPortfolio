@@ -5,6 +5,7 @@ type Mission = {
   client: string;
   role: string;
   date: string;
+  context?: string;
   actions: string[];
   technologies: string[];
   placeholder?: boolean;
@@ -42,15 +43,17 @@ const experiences: Experience[] = [
         client: "Unéo",
         role: "Ingénieur DevOps & Industrialisation",
         date: "Novembre 2025 – Mars 2026",
+        context:
+          "Intervention sur la livraison de l'ensemble des applications Unéo et amélioration de l'application de tests end-to-end.",
         actions: [
           "Mise en place et optimisation de la livraison continue selon les principes GitOps",
           "Déploiements automatisés via ArgoCD",
           "Industrialisation des applications avec Helm Charts",
-          "Exécution parallèle de scénarios de tests end-to-end pour réduire les temps de validation",
+          "Exécution parallèle de plusieurs scénarios de tests end-to-end pour réduire les temps de validation",
           "Optimisation du processus de purge automatique des rapports générés",
           "Livraison continue des nouvelles fonctionnalités de test",
-          "Conception d'un script de monitoring pour récupérer l'état des listeners des applications",
-          "Création de dashboards Kibana pour la supervision des équipes techniques",
+          "Conception d'un script de monitoring permettant de récupérer automatiquement l'état des listeners des différentes applications",
+          "Création de dashboards Kibana exploitant les données du script de monitoring pour fournir une supervision claire et exploitable par les équipes techniques",
         ],
         technologies: [
           "GitOps",
@@ -62,79 +65,95 @@ const experiences: Experience[] = [
           "Bash",
           "Python",
           "Jenkins",
+          "Monitoring",
           "Rancher",
           "Cypress",
         ],
       },
       {
         client: "Colissimo",
-        role: "À préciser",
-        date: "À préciser",
-        actions: [],
-        technologies: [],
-        placeholder: true,
+        role: "Ingénieur DevOps / Backend",
+        date: "Juillet 2025 – Septembre 2025",
+        context:
+          "Intervention au sein de l'écosystème Colissimo sur des services distribués à forte volumétrie, avec des enjeux de performance, de disponibilité et de fiabilité.",
+        actions: [
+          "Mise en œuvre et amélioration des processus de déploiement des applications sur Kubernetes, en assurant la stabilité et la reproductibilité des mises en production",
+          "Participation à la mise en place et à l'optimisation de la supervision (logs, métriques, alerting) pour améliorer la visibilité des services et réduire le temps de détection des incidents",
+          "Amélioration des performances du service COCON via l'introduction de mécanismes de multithreading et de parallélisme",
+          "Implémentation de mécanismes de cache locaux pour limiter les appels redondants et améliorer les temps de réponse",
+          "Migration des microservices de Java 8 vers Java 11 avec adaptation du code, gestion de compatibilité et validation en environnement cible",
+          "Traitement des vulnérabilités de sécurité (CVE) : identification, correction et mise à jour des dépendances",
+          "Uniformisation et optimisation des Dockerfiles : factorisation des bonnes pratiques, réduction de la taille des images et amélioration des temps de build",
+          "Contribution à l'amélioration continue des pipelines CI/CD (Jenkins, GitLab CI) pour fiabiliser les processus de build, test et déploiement",
+        ],
+        technologies: [
+          "Kubernetes",
+          "Jenkins",
+          "GitLab CI",
+          "Docker",
+          "Kibana",
+          "Grafana",
+          "Java",
+          "Spring Boot",
+          "Sonar",
+          "Kafka",
+          "CI/CD",
+        ],
       },
       {
         client: "Fedea",
-        role: "Développeur FullStack & DevOps",
+        role: "Ingénieur DevOps / FullStack",
         date: "Avril 2025 – Juin 2025",
+        context:
+          "Création d'une plateforme SaaS permettant la collaboration entre plusieurs sociétés d'expertise d'assurance dans le cadre d'une expertise contradictoire.",
         actions: [
-          "Création du projet sur Azure DevOps Organizations",
-          "Mise en place de pipelines CI/CD pour le front (React) et le back (Spring Boot)",
-          "Création et configuration des services cloud Azure (ACR, Container Apps, Blob Storage, SQL Database)",
-          "Configuration de l'authentification SSO (React, Spring Security, Azure Entra ID)",
-          "Sécurisation et gestion des autorisations des APIs exposées",
-          "Conception et développement des fonctionnalités de la plateforme",
+          "Création et configuration du projet au sein d'Azure DevOps Organizations",
+          "Mise en place des pipelines CI/CD pour les applications Front (React) et Back (Spring Boot), garantissant un cycle de livraison fluide et automatisé",
+          "Provisioning et configuration des services Azure : Azure Container Registry, Azure Container Apps, Azure Blob Storage, Azure SQL Database",
+          "Implémentation de l'authentification SSO via React, Spring Security et Azure Entra ID",
+          "Sécurisation et gestion fine des autorisations des APIs exposées grâce à Spring Security",
+          "Participation à la conception technique et au développement des fonctionnalités de la plateforme (React & Spring Boot)",
+          "Contribution à l'amélioration continue de l'architecture et des bonnes pratiques de développement",
         ],
         technologies: [
+          "CI/CD",
+          "Docker",
+          "Azure",
+          "Azure Pipelines",
           "Spring Boot",
           "Java",
           "React",
           "TypeScript",
           "Swagger",
           "Git",
-          "Docker",
-          "Azure",
-          "Azure Pipelines",
-        ],
-      },
-      {
-        client: "Veille Technologique — DevOps",
-        role: "Référent DevOps Interne",
-        date: "Janvier 2024 – Aujourd'hui",
-        actions: [
-          "Déploiement et configuration d'une instance Jenkins locale dans un conteneur Docker",
-          "Configuration des stages du pipeline dans le Jenkinsfile",
-          "Définition et configuration des étapes du Dockerfile",
-        ],
-        technologies: [
-          "GitHub",
-          "Docker",
-          "Systemd",
-          "Nginx",
-          "Jenkins",
-          "Docker Hub",
-          "DNS dynamique",
         ],
       },
       {
         client: "BNP Paribas",
         role: "Consultant Technique Confirmé",
         date: "Janvier 2022 – Mars 2025",
+        context:
+          "Au sein des équipes ITG (IT Group de BNP Paribas), dédiées à la réalisation de solutions digitales pour les chargés d'affaires entreprise, avec une contribution sur LifeCycle : solution de maintenance des contrats électroniques bancaires sur tout leur cycle de vie.",
         actions: [
           "Analyser, appréhender et définir les besoins du client",
+          "Comprendre les spécifications et les consignes",
           "Contribuer au développement du micro-service de génération d'Excel (Java, Spring Boot)",
           "Migration Scala vers Spring Boot",
-          "Migration de Spring Fox vers OpenAPI dans l'application Orchestrateur",
-          "Gérer les groupes d'utilisateurs dans l'application Workflow",
+          "Migration de Spring Fox vers OpenAPI dans l'application Orchestrateur (Java, Swagger)",
+          "Gérer les groupes d'utilisateurs dans l'application Workflow (Java, Spring Boot)",
           "Développer le notificateur Excel asynchrone et toaster (React, TypeScript)",
           "Contribuer au développement des applications Serveur, Orchestrateur, Batch, Workflow et Client",
-          "Proposer et prototyper une architecture technique",
-          "Concevoir et développer des tests unitaires et d'intégration",
+          "Proposer une architecture technique",
+          "Réaliser un prototype de la solution technique pour validation par le métier",
+          "Concevoir et développer des tests unitaires, des tests d'intégration et des tests d'acceptation automatiques",
           "Réaliser la maintenance corrective et évolutive",
-          "Améliorer la qualité du code et rédiger la documentation technique",
+          "Améliorer la qualité du code",
+          "Rédiger la documentation technique",
         ],
         technologies: [
+          "Jenkins",
+          "Kubernetes",
+          "Sonar",
           "Java",
           "Spring Boot",
           "Scala",
@@ -212,6 +231,12 @@ const MissionNode: FC<{ mission: Mission; isLast: boolean }> = ({
       <p className="text-xs text-gray-500 dark:text-gray-400 italic mb-3">
         {mission.role}
       </p>
+
+      {!mission.placeholder && mission.context && (
+        <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+          {mission.context}
+        </p>
+      )}
 
       {!mission.placeholder && mission.actions.length > 0 && (
         <div className="mb-3">
