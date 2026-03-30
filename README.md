@@ -1,73 +1,182 @@
-# React + TypeScript + Vite
+# Documentation technique — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Vue d'ensemble
 
-Currently, two official plugins are available:
+Ce projet est un portfolio frontend développé en **React + TypeScript** et bundlé avec **Vite**.
+L'application est ensuite servie en production par **Nginx** dans une image **Docker**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Objectif technique : proposer une application web statique, légère, rapide à builder et simple à déployer.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. Technologies utilisées
 
-## Expanding the ESLint configuration
+### Frontend
+- **React 19** : construction de l'interface en composants.
+- **TypeScript 5** : typage statique et meilleure maintenabilité.
+- **Vite 7** : serveur de développement rapide et build de production.
+- **Tailwind CSS 4** : styles utilitaires.
+- **React Icons** : icônes sociales et visuelles.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Qualité et outillage
+- **ESLint 9** : contrôle qualité du code.
+- **npm** : gestion des dépendances et scripts.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Livraison et hébergement
+- **Docker** : conteneurisation de l'application.
+- **Nginx** : service des fichiers statiques et fallback SPA.
+- **GitHub Actions** : pipeline CI/CD.
+- **Docker Hub** : registry des images Docker.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 3. Architecture applicative
+
+Le projet suit une structure simple orientée composants :
+
+- `src/App.tsx` : composition principale de la page.
+- `src/title/` : bloc d'identité et présentation.
+- `src/sectionsNav/` : navigation interne entre sections.
+- `src/aboutMe/` : section de présentation.
+- `src/academicBackground/` : parcours académique.
+- `src/proExperiences/` : expériences professionnelles.
+- `src/personalProjects/` : projets personnels.
+- `src/socialIcons/` : liens externes et réseaux.
+
+### Diagramme simplifié des composants
+
+```mermaid
+flowchart TD
+    A[App.tsx]
+    A --> B[Title]
+    A --> C[SectionsNav]
+    A --> D[AboutMe]
+    A --> E[AcademicBackground]
+    A --> F[ProExperiences]
+    A --> G[PersonalProjects]
+    A --> H[SocialIcons]
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 4. Cycle de build et d'exécution
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### En local
+- `npm run dev` : lance le serveur Vite.
+- `npm run build` : compile TypeScript puis génère le dossier `dist/`.
+- `npm run lint` : vérifie la qualité du code.
+- `npm run preview` : prévisualise le build localement.
+
+### En production
+Le build produit des fichiers statiques dans `dist/`, ensuite servis par Nginx.
+
+---
+
+## 5. Conteneurisation Docker
+
+Le projet utilise un **build multi-stage** :
+
+1. **Stage build** : image `node:18-alpine`
+   - installation des dépendances via `npm ci`
+   - exécution de `npm run build`
+2. **Stage runtime** : image `nginx:alpine`
+   - copie du contenu de `dist/`
+   - configuration Nginx personnalisée
+   - exposition du port `80`
+
+### Rôle de Nginx
+La configuration inclut un fallback SPA :
+
+- `try_files $uri $uri/ /index.html;`
+
+Cela permet aux routes frontend de fonctionner correctement après rafraîchissement navigateur.
+
+### Diagramme de déploiement
+
+```mermaid
+flowchart LR
+    A[Code source] --> B[Build Vite]
+    B --> C[dist/]
+    C --> D[Image Docker]
+    D --> E[Docker Hub]
+    E --> F[Serveur cible]
+    F --> G[Nginx sert le portfolio]
 ```
+
+---
+
+## 6. Pipeline CI/CD
+
+Le pipeline est défini dans **GitHub Actions** et s'exécute sur un `push` vers la branche `main`.
+
+### Étapes principales
+1. Récupération du code source.
+2. Initialisation de **Node.js 18**.
+3. Installation des dépendances avec `npm ci`.
+4. Build de l'application avec `npm run build`.
+5. Authentification à Docker Hub.
+6. Build de l'image Docker.
+7. Push de l'image sur Docker Hub.
+
+### Secrets requis
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
+
+### Tags publiés
+- `hamzaportfolio:latest`
+- `hamzaportfolio:<sha-du-commit>`
+
+### Diagramme du pipeline
+
+```mermaid
+flowchart LR
+    A[Push sur main] --> B[GitHub Actions]
+    B --> C[npm ci]
+    C --> D[npm run build]
+    D --> E[Docker build]
+    E --> F[Login Docker Hub]
+    F --> G[Push image]
+```
+
+---
+
+## 7. Déploiement sur Docker Hub
+
+L'image générée est publiée sur Docker Hub afin d'être réutilisable sur n'importe quel environnement compatible Docker.
+
+### Exemple de build manuel
+```bash
+docker build -t <dockerhub_user>/hamzaportfolio:latest .
+```
+
+### Exemple de publication manuelle
+```bash
+docker push <dockerhub_user>/hamzaportfolio:latest
+```
+
+### Exemple de lancement
+```bash
+docker run -d -p 8080:80 <dockerhub_user>/hamzaportfolio:latest
+```
+
+L'application est alors accessible sur :
+
+- `http://localhost:8080`
+
+---
+
+## 8. Résumé technique
+
+Ce portfolio repose sur une stack moderne et simple :
+
+- **React + TypeScript + Vite** pour le frontend
+- **Tailwind CSS** pour le style
+- **Docker + Nginx** pour la livraison
+- **GitHub Actions + Docker Hub** pour l'automatisation CI/CD
+
+L'ensemble permet un projet :
+
+- rapide à développer,
+- facile à maintenir,
+- simple à déployer,
+- cohérent pour une mise en production continue.
