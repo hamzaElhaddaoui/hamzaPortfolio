@@ -13,7 +13,6 @@ type Mission = {
 
 type StandardExperience = {
   kind: "standard";
-  title: string;
   contract: string;
   company: string;
   date: string;
@@ -168,21 +167,36 @@ const experiences: Experience[] = [
   },
   {
     kind: "standard",
-    title: "Développeur Fullstack",
-    contract: "Alternance",
+    contract: "Alternance - Développeur Full Stack",
     company: "SeveUp",
-    date: "2020 – 2021",
-    description: "Conception et développement des services métiers de SeveUp",
+    date: "Septembre 2020 – Septembre 2021",
+    description:
+      "L'objectif de la mission était de créer l'ensemble des services permettant de relier les bâtiments digitaux BIM à la BI pour extraire des valeurs exploitables. Intégré à l'équipe de développement, j'ai contribué from scratch aux parties backend et frontend.",
     missions: [
-      "Développement de la plateforme API (Gateway)",
-      "Conception et développement de l'application IFC Converter",
-      "Conception et développement de l'application DataTracker",
+      "Analyser, appréhender et définir les besoins client",
+      "Comprendre les spécifications et les consignes fonctionnelles",
+      "Développer la Plateforme API centrale pour gérer les abonnements clients et filtrer les accès vers les services",
+      "Développer le micro-service IFCConverter pour transformer les données BIM vers une base relationnelle dédiée à la BI",
+      "Concevoir et développer le micro-service DataTracker avec sa partie IHM",
+      "Développer une application en lien avec PostgreSQL",
+      "Proposer une architecture technique et réaliser des prototypes de validation métier",
+      "Concevoir et développer des tests unitaires, d'intégration et d'acceptation automatiques",
+      "Réaliser la maintenance corrective et évolutive",
+      "Améliorer la qualité du code et rédiger la documentation technique",
     ],
     technologies: [
-      "Java",
+      "Java 8",
+      "JEE",
       "Spring Boot",
-      "Jhipster",
+      "JHipster",
+      "Scala",
+      "React",
+      "TypeScript",
+      "Swagger",
+      "JUnit",
+      "Oracle",
       "Angular",
+      "Angular Material",
       "HTML",
       "CSS",
       "Docker",
@@ -287,19 +301,23 @@ const EsnBlock: FC<{ exp: EsnExperience }> = ({ exp }) => (
 );
 
 const StandardBlock: FC<{ exp: StandardExperience }> = ({ exp }) => (
-  <div className="flex w-full p-4 rounded-lg border border-transparent transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 dark:bg-gray-800/60 mb-4">
-    <div className="md:basis-1/5 text-xs mt-0.5 shrink-0">{exp.date}</div>
-    <div className="md:basis-4/5 text-sm">
-      <h3 className="font-semibold">
-        {exp.contract} – {exp.title}
-      </h3>
-      <div className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">
-        {exp.company}
+  <div className="mb-6 p-4 rounded-lg border border-transparent transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 dark:bg-gray-800/60">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="flex flex-col">
+        <span className="font-bold text-sm">{exp.company}</span>
+        <span className="text-xs text-gray-500 dark:text-gray-400">
+          {exp.contract}
+        </span>
+        <span className="text-xs text-gray-400 dark:text-gray-500">
+          {exp.date}
+        </span>
       </div>
-      <div className="mt-2 text-xs text-gray-700 dark:text-gray-300">
-        {exp.description}
-      </div>
-      <div className="mt-2">
+    </div>
+
+    <div className="mt-2">
+      <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+          {exp.description}
+        </p>
         <p className="text-xs font-medium">Missions réalisées :</p>
         <ul className="list-disc list-inside mt-1 text-xs space-y-0.5 text-gray-700 dark:text-gray-300">
           {exp.missions.map((m, i) => (
@@ -312,7 +330,6 @@ const StandardBlock: FC<{ exp: StandardExperience }> = ({ exp }) => (
           <TechBadge key={i} tech={tech} />
         ))}
       </div>
-    </div>
   </div>
 );
 
