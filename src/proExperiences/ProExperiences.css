@@ -1,18 +1,146 @@
 ﻿/* Timeline styles */
 .timeline-line {
-  background-color: #94a3b8; /* slate-400 */
-}
-
-.dark .timeline-line {
-  background-color: #475569; /* slate-600 */
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+  transition: all 0.3s ease;
 }
 
 .timeline-node {
-  border-color: #94a3b8;
-  background-color: white;
+  border-color: #0ea5e9;
+  background: radial-gradient(circle, #0ea5e9 0%, #1e293b 100%);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
+  transition: all 0.3s ease;
 }
 
-.dark .timeline-node {
-  border-color: #60a5fa; /* blue-400 */
-  background-color: #111827;
+.timeline-node:hover {
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.6);
+  transform: scale(1.4);
+}
+
+/* Pro Experiences Section */
+.pro-experiences {
+  animation: slideUp 0.6s ease-out;
+}
+
+.pro-experiences-title {
+  margin-bottom: 1.5rem;
+}
+
+.pro-experiences-title h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.pro-experiences-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+  border-radius: 2px;
+}
+
+/* Company block styling */
+.company-block {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: slideUp 0.6s ease-out;
+}
+
+.company-block:hover {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.1);
+  transform: translateY(-4px);
+}
+
+.company-header {
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.5s ease-out;
+}
+
+.company-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.25rem;
+}
+
+.company-contract {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 0.25rem;
+}
+
+.company-date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Mission blocks styling */
+.mission-block {
+  background: rgba(30, 41, 59, 0.2);
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.mission-block:hover {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: rgba(14, 165, 233, 0.2);
+  transform: translateX(4px);
+}
+
+/* Tech badge styling */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tech-badge:hover {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
+  border-color: #0ea5e9;
+  color: #f8fafc;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+}
+
+@media (max-width: 768px) {
+  .pro-experiences {
+    padding: 0;
+  }
+
+  .company-block {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pro-experiences-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .tech-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+  }
 }

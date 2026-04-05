@@ -1,0 +1,107 @@
+.personal-projects {
+  animation: slideUp 0.6s ease-out;
+}
+
+.personal-projects-title {
+  margin-bottom: 1.5rem;
+}
+
+.personal-projects-title h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.personal-projects-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+  border-radius: 2px;
+}
+
+.personal-projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.personal-projects-item {
+  padding: 1.75rem;
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: scaleIn 0.4s ease-out;
+}
+
+.personal-projects-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+
+.personal-projects-item:hover {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(14, 165, 233, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.1);
+}
+
+.personal-projects-item:hover::before {
+  left: 100%;
+}
+
+.personal-projects-item-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.personal-projects-item-description {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .personal-projects-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .personal-projects-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .personal-projects-item {
+    padding: 1.25rem;
+  }
+
+  .personal-projects-item-title {
+    font-size: 1.1rem;
+  }
+
+  .personal-projects-item-description {
+    font-size: 0.9rem;
+  }
+}

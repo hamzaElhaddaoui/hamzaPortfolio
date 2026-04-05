@@ -25,22 +25,21 @@ const AcademicBackground: FC = () => {
   return (
     <div className="academic-background">
       <div className="academic-background-title">
-        <h2 className="md:hidden block bright-text">Academic Background</h2>
+        <h2 className="lg:hidden block bright-text">Formation</h2>
       </div>
-      <div className="space-y-5">
+      <div className="space-y-4">
         {academicItems.map((item, index) => (
-          <div className="flex" key={index}>
-            <div className="md:basis-1/5 text-xs mt-0.5">{item.date}</div>
-            <div className="md:basis-4/5 text-sm">
-              <h3 className="uppercase">
+          <div className="academic-item" key={index}>
+            <span className="academic-date">{item.date}</span>
+            <div>
+              <h3 className="academic-degree">
                 {item.title}, filière {item.field}
               </h3>
               {item.titleNature && (
-                <div className="text-xs">{item.titleNature}</div>
+                <div className="academic-degree-nature">{item.titleNature}</div>
               )}
-              <div className="text-xs mt-2">
-                {item.university}, {item.city}
-              </div>
+              <div className="academic-university">{item.university}</div>
+              <div className="academic-city">{item.city}</div>
             </div>
           </div>
         ))}

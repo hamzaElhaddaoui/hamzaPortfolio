@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "./SectionsNav.css";
 
 const sections = [
-  { id: "section1", label: "About" },
-  { id: "section2", label: "Academic Background" },
-  { id: "section3", label: "Professional Experiences" },
-  { id: "section4", label: "Personal Projects" },
+  { id: "section1", label: "À propos" },
+  { id: "section2", label: "Formation" },
+  { id: "section3", label: "Expériences" },
+  { id: "section4", label: "Projets" },
 ];
 
 const SectionsNav = () => {

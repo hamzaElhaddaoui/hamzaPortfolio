@@ -18,11 +18,11 @@ const PersonalProjects: FC = () => {
   return (
     <div className="personal-projects">
       <div className="personal-projects-title">
-        <h2 className="md:hidden block bright-text">Personal Projects</h2>
+        <h2 className="lg:hidden block bright-text">Projets Personnels</h2>
       </div>
-      <div className="personal-projects-list  space-y-5">
+      <div className="personal-projects-list">
         {PersonalProjectsData.map((project, index) => (
-          <div key={index} className="personal-projects-item space-y-2">
+          <div key={index} className="personal-projects-item">
             <h3 className="personal-projects-item-title">{project.title}</h3>
             <p className="personal-projects-item-description">
               {project.description}

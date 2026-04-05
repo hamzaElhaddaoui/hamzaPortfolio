@@ -1,15 +1,17 @@
 import type { FC } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./SocialIcons.css";
 
 const SocialIcons: FC = () => {
   return (
-    <div className="social-icons flex space-x-6">
+    <div className="social-icons">
       <a
         href="https://github.com/hamzaElhaddaoui"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        className="transition-all duration-300"
         aria-label="GitHub"
+        title="Visitez mon GitHub"
       >
         <FaGithub />
       </a>
@@ -17,15 +19,17 @@ const SocialIcons: FC = () => {
         href="https://fr.linkedin.com/in/hamzaelhaddaoui"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        className="transition-all duration-300"
         aria-label="LinkedIn"
+        title="Connectez-vous sur LinkedIn"
       >
         <FaLinkedin />
       </a>
       <a
         href="mailto:hamza.el.haddaoui@gmail.com"
-        className="text-2xl hover:text-white hover:scale-125 transition-all duration-300"
+        className="transition-all duration-300"
         aria-label="Email"
+        title="Envoyez-moi un email"
       >
         <FaEnvelope />
       </a>

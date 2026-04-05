@@ -10,10 +10,10 @@ const AboutMe: FC = () => {
   return (
     <div className="about-me">
       <div className="about-me-title">
-        <h2 className="md:hidden block bright-text">About</h2>
+        <h2 className="lg:hidden block bright-text">À propos</h2>
       </div>
-      <div className="about-me-description text-sm">
-        <p className="text-justify">{AboutMeData.description}</p>
+      <div className="about-me-description">
+        <p>{AboutMeData.description}</p>
       </div>
     </div>
   );

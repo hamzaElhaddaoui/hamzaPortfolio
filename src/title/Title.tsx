@@ -10,16 +10,11 @@ const TitleData = {
 
 const Title: FC = () => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <h1 className="title big-title">{TitleData.name}</h1>
       <h2 className="subtitle sub-title">{TitleData.title}</h2>
       <p className="description">
-        {TitleData.description.split("\n").map((line, index) => (
-          <span key={index}>
-            {line}
-            <br />
-          </span>
-        ))}
+        {TitleData.description}
       </p>
     </div>
   );

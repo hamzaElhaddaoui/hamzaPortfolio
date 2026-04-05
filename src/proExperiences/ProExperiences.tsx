@@ -189,7 +189,6 @@ const experiences: Experience[] = [
       "JEE",
       "Spring Boot",
       "JHipster",
-      "Scala",
       "React",
       "TypeScript",
       "Swagger",
@@ -207,7 +206,7 @@ const experiences: Experience[] = [
 ];
 
 const TechBadge: FC<{ tech: string }> = ({ tech }) => (
-  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-xs text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+  <span className="tech-badge">
     {tech}
   </span>
 );
@@ -226,36 +225,36 @@ const MissionNode: FC<{ mission: Mission; isLast: boolean }> = ({
     <div className="timeline-node absolute left-0 top-2 w-4 h-4 rounded-full border-2 bg-white dark:bg-gray-900" />
 
     <div
-      className={`mb-4 p-3 rounded-lg border transition-all duration-200 ${
+      className={`mission-block ${
         mission.placeholder
-          ? "border-dashed border-gray-300 dark:border-gray-600 opacity-60"
-          : "border-transparent dark:bg-gray-800/60"
+          ? "border-dashed opacity-60"
+          : ""
       }`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-        <h4 className="font-semibold text-sm">
+        <h4 className="font-semibold text-sm text-slate-100">
           {mission.placeholder
             ? `${mission.client} — (en cours de complétion)`
             : mission.client}
         </h4>
-        <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">
+        <span className="text-xs text-slate-500 shrink-0">
           {mission.date}
         </span>
       </div>
-      <p className="text-xs text-gray-500 dark:text-gray-400 italic mb-3">
+      <p className="text-xs text-slate-500 italic mb-3">
         {mission.role}
       </p>
 
       {!mission.placeholder && mission.context && (
-        <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+        <p className="text-xs text-slate-400 mb-3">
           {mission.context}
         </p>
       )}
 
       {!mission.placeholder && mission.actions.length > 0 && (
         <div className="mb-3">
-          <p className="text-xs font-medium mb-1">Actions réalisées :</p>
-          <ul className="list-disc list-inside text-xs space-y-0.5 text-gray-700 dark:text-gray-300">
+          <p className="text-xs font-medium mb-1 text-slate-200">Actions réalisées :</p>
+          <ul className="list-disc list-inside text-xs space-y-0.5 text-slate-400">
             {mission.actions.map((action, i) => (
               <li key={i}>{action}</li>
             ))}
@@ -275,17 +274,11 @@ const MissionNode: FC<{ mission: Mission; isLast: boolean }> = ({
 );
 
 const EsnBlock: FC<{ exp: EsnExperience }> = ({ exp }) => (
-  <div className="mb-6 p-4 rounded-lg border border-transparent transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 dark:bg-gray-800/60">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="flex flex-col">
-        <span className="font-bold text-sm">{exp.company}</span>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
-          {exp.contract}
-        </span>
-        <span className="text-xs text-gray-400 dark:text-gray-500">
-          Depuis {exp.startDate}
-        </span>
-      </div>
+  <div className="company-block">
+    <div className="company-header">
+      <div className="company-name">{exp.company}</div>
+      <div className="company-contract">{exp.contract}</div>
+      <div className="company-date">Depuis {exp.startDate}</div>
     </div>
 
     <div>
@@ -301,25 +294,19 @@ const EsnBlock: FC<{ exp: EsnExperience }> = ({ exp }) => (
 );
 
 const StandardBlock: FC<{ exp: StandardExperience }> = ({ exp }) => (
-  <div className="mb-6 p-4 rounded-lg border border-transparent transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 dark:bg-gray-800/60">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="flex flex-col">
-        <span className="font-bold text-sm">{exp.company}</span>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
-          {exp.contract}
-        </span>
-        <span className="text-xs text-gray-400 dark:text-gray-500">
-          {exp.date}
-        </span>
-      </div>
+  <div className="company-block">
+    <div className="company-header">
+      <div className="company-name">{exp.company}</div>
+      <div className="company-contract">{exp.contract}</div>
+      <div className="company-date">{exp.date}</div>
     </div>
 
     <div className="mt-2">
-      <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+      <p className="text-xs text-slate-400 mb-3">
           {exp.description}
         </p>
-        <p className="text-xs font-medium">Missions réalisées :</p>
-        <ul className="list-disc list-inside mt-1 text-xs space-y-0.5 text-gray-700 dark:text-gray-300">
+        <p className="text-xs font-medium text-slate-200">Missions réalisées :</p>
+        <ul className="list-disc list-inside mt-1 text-xs space-y-0.5 text-slate-400">
           {exp.missions.map((m, i) => (
             <li key={i}>{m}</li>
           ))}
@@ -335,8 +322,10 @@ const StandardBlock: FC<{ exp: StandardExperience }> = ({ exp }) => (
 
 const ProExperiences: FC = () => {
   return (
-    <div>
-      <h2 className="md:hidden block bright-text">Professional Experiences</h2>
+    <div className="pro-experiences">
+      <div className="pro-experiences-title">
+        <h2 className="lg:hidden block bright-text">Expériences Professionnelles</h2>
+      </div>
       {experiences.map((exp, index) =>
         exp.kind === "esn" ? (
           <EsnBlock key={index} exp={exp} />

@@ -9,33 +9,47 @@ import SocialIcons from "./socialIcons/SocialIcons";
 
 const App: FC = () => {
   return (
-    <div className="container mx-auto mt-20 px-10">
-      <div className="md:flex">
-        <div className="flex flex-col space-y-15 items-start md:fixed md:top-20 md:left-[18%] md:w-[20%] md:h-[calc(100vh-5rem)] md:justify-between">
-          <div>
-            <Title />
+    <div className="min-h-screen relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Sidebar */}
+          <aside className="lg:col-span-4">
+            <div className="lg:sticky lg:top-20 space-y-8 md:space-y-12">
+              <div className="animate-fade-in">
+                <Title />
+              </div>
+              <nav className="hidden lg:block animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <SectionsNav />
+              </nav>
+              <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <SocialIcons />
+              </div>
+            </div>
+          </aside>
+
+          {/* Mobile Navigation */}
+          <div className="lg:hidden col-span-1 animate-slide-down">
+            <nav className="flex justify-center mb-8">
+              <SectionsNav />
+            </nav>
           </div>
-          <div className="hidden md:block">
-            <SectionsNav />
-          </div>
-          <div className="md:mt-auto md:mb-20">
-            <SocialIcons />
-          </div>
-        </div>
-        <div className="flex flex-col space-y-15 flex-1 md:ml-[41%] md:mr-[13%] md:pl-7">
-          <div id="section1">
-            <AboutMe />
-          </div>
-          <div id="section2">
-            <AcademicBackground />
-          </div>
-          <div id="section3">
-            <ProExperiences />
-          </div>
-          <div id="section4">
-            <PersonalProjects />
-          </div>
-          <div></div>
+
+          {/* Main Content */}
+          <main className="lg:col-span-8 space-y-12 md:space-y-16">
+            <section id="section1" className="animate-fade-in">
+              <AboutMe />
+            </section>
+            <section id="section2" className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <AcademicBackground />
+            </section>
+            <section id="section3" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <ProExperiences />
+            </section>
+            <section id="section4" className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <PersonalProjects />
+            </section>
+            <div className="pb-20"></div>
+          </main>
         </div>
       </div>
     </div>
