@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://votre-domaine.com/sitemap.xml
+Sitemap: https://www.hamzaa.fr/sitemap.xml
