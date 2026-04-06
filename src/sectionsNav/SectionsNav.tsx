@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import "./SectionsNav.css";
 
 const sections = [
-  { id: "section1", label: "À propos" },
-  { id: "section2", label: "Formation" },
-  { id: "section3", label: "Expériences" },
-  { id: "section4", label: "Projets" },
+  { id: "about-me", label: "À propos" },
+  { id: "academic-background", label: "Formation" },
+  { id: "professional-experiences", label: "Expériences Professionnelles" },
+  { id: "personal-projects", label: "Projets Personnels" },
 ];
 
 const SectionsNav = () => {
-  const [activeId, setActiveId] = useState("section1");
+  const [activeId, setActiveId] = useState("about-me");
 
   useEffect(() => {
     let ticking = false;
@@ -51,7 +51,7 @@ const SectionsNav = () => {
   }, []);
 
   return (
-    <div className="space-y-2 flex flex-col">
+    <div className="hidden lg:flex space-y-2 flex-col">
       {sections.map(({ id, label }) => (
         <div
           key={id}

@@ -3,7 +3,7 @@ import "./AboutMe.css";
 
 const AboutMeData = {
   description:
-    "Lauréat d'une école d'ingénieurs, je cumule 5 ans d'expérience professionnelle. J'ai démarré ma carrière en tant que développeur fullstack, puis j'ai évolué progressivement vers le DevOps, un domaine qui correspond davantage à mes ambitions et à mes centres d'intérêt. Aujourd'hui, je mets en avant mon expertise DevOps pour contribuer à des projets orientés automatisation, fiabilité, déploiement continu et scalabilité, avec l'objectif de décrocher de nouvelles missions dans ce domaine.",
+    "Ingénieur DevOps spécialisé dans la modernisation d'infrastructures et l'automatisation à grande échelle. J'orchestre des déploiements GitOps sur Kubernetes, j'optimise des systèmes critiques à forte volumétrie, et je pilote des migrations techniques vers des architectures cloud natives. Ma polyvalence DevOps-Backend me permet d'intervenir sur toute la chaîne, de l'infrastructure au code métier. Les missions ci-dessous montrent comment j'ai réduit les incidents, accéléré les livraisons et sécurisé des environnements de production.",
 };
 
 const AboutMe: FC = () => {

@@ -36,16 +36,16 @@ const App: FC = () => {
 
           {/* Main Content */}
           <main className="lg:col-span-8 space-y-12 md:space-y-16">
-            <section id="section1" className="animate-fade-in">
+            <section id="about-me" className="animate-fade-in">
               <AboutMe />
             </section>
-            <section id="section2" className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <section id="academic-background" className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <AcademicBackground />
             </section>
-            <section id="section3" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <section id="professional-experiences" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <ProExperiences />
             </section>
-            <section id="section4" className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <section id="personal-projects" className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <PersonalProjects />
             </section>
             <div className="pb-20"></div>

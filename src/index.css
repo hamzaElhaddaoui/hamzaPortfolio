@@ -5,6 +5,11 @@
   scroll-behavior: smooth;
 }
 
+/* Scroll offset for section navigation */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 html, body, #root {
   height: 100%;
   width: 100%;
